@@ -1,0 +1,171 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Family Christmas Celebration</title>
+    <style>
+        body {
+            font-family: 'Montserrat', 'Times new roman', '';
+            background-color: #7D0A0A;
+            margin: 0;
+            padding: 0;
+        }
+
+        header {
+            background-color: #7D0A0A;
+            color: #fff;
+            text-align: center;
+            padding: 20px;
+            font-family: 'Brush Script MT', cursive;
+            font-size: 30px;
+        }
+
+        section {
+            max-width: 800px;
+            margin: 20px auto;
+            padding: 20px;
+            background-color: #fff;
+            border-radius: 5px;
+        }
+
+        footer {
+            text-align: center;
+            padding: 10px;
+            background-color: #7D0A0A;
+            color: #fff;
+            font-size: 20px;
+        }
+
+        .slider-container {
+            position: relative;
+            width: 100%;
+            overflow: hidden;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .slider {
+            display: flex;
+            transition: transform 0.5s ease-in-out;
+        }
+
+        .slide {
+            min-width: 100%;
+            box-sizing: border-box;
+        }
+
+        .slide img {
+            width: 100%;
+            height: 100%;
+            object-fit: contain;
+        }
+
+        .prev,
+        .next {
+            position: absolute;
+            top: 50%;
+            transform: translateY(-50%);
+            font-size: 20px;
+            background: none;
+            border: none;
+            color: #000;
+            cursor: pointer;
+        }
+
+        .prev {
+            left: 10px;
+        }
+
+        .next {
+            right: 10px;
+        }
+
+        /* Christmas decorations */
+        .bells {
+            position: fixed;
+            top: 40%;
+            left: 8px;
+            transform: translateY(-50%);
+            width: 50px;
+            z-index: 1;
+            width: 400px;
+        }
+
+        .candy-cane {
+            position: fixed;
+            top: 0%;
+            transform: translateX(-50%);
+            width: 50px;
+            z-index: 1;
+            width: 400px;
+            margin-left: 85%;
+        }
+    </style>
+</head>
+<body>
+    <img class="bells" src="img\xmas.png" alt="Christmas Bells">
+    <img class="candy-cane" src="img\xmas.png" alt="Candy Cane">
+
+    <header>
+        <h1>Merry Christmas & Happy New Year!!</h1>
+    </header>
+
+    <section id="home">
+        <h2>Welcome to Our Christmas Celebration Website!</h2>
+        <p>Join us in celebrating the joy and warmth of the holiday season with our loving family.
+            <br> Let us also celebrate the remarkable life of our beloved lolo manny on his special day! 🎉🎂 
+        </p>
+    </section>
+
+    <section id="photos">
+        <h2>Family Photos</h2>
+        <p>Browse through our family pictures!</p>
+        
+        <div class="slider-container">
+            <div class="slider">
+                <div class="slide"><img src="img\2NPF2572.jpg"></div>
+                <div class="slide"><img src="img\2NPF2582.jpg"></div>
+                <div class="slide"><img src="img\2NPF2596.jpg"></div>
+                <div class="slide"><img src="img\2NPF2608.jpg"></div>
+                <div class="slide"><img src="img\2NPF2654.jpg"></div>
+                <div class="slide"><img src="img\img6.jpg"></div>
+                <div class="slide"><img src="img\img7.png"></div>
+                <div class="slide"><img src="img\img 8.png"></div>
+                <div class="slide"><img src="img\img9.png"></div>
+                <div class="slide"><img src="img\img10.png"></div>
+            </div>
+        
+            <button class="prev" onclick="prevSlide()">&#10094;</button>
+            <button class="next" onclick="nextSlide()">&#10095;</button>
+        </div>
+    </section>
+
+    <footer>
+        <p>&copy; Suazo-Tapal Family. All rights reserved 2023.</p>
+    </footer>
+
+    <script>
+        let currentSlide = 0;
+
+        function nextSlide() {
+            currentSlide = (currentSlide + 1) % 10;
+            updateSlider();
+        }
+
+        function prevSlide() {
+            currentSlide = (currentSlide - 1 + 10) % 10;
+            updateSlider();
+        }
+
+        function updateSlider() {
+            const slider = document.querySelector('.slider');
+            slider.style.transform = `translateX(${-currentSlide * 100}%)`;
+        }
+
+        setInterval(() => nextSlide(), 3000);
+    </script>
+
+</body>
+</html>
